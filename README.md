@@ -10,6 +10,10 @@
 
 ### A CLI for creating Expression Libraries for After Effects, in TypeScript.
 
+```sh
+npx create-expression-lib
+```
+
 </div>
 
 ---
