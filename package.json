@@ -1,0 +1,30 @@
+{
+  "name": "create-expression-lib",
+  "version": "1.0.0",
+  "description": "A CLI to create After Effects expression libraries, in TypeScript",
+  "main": "src/index.js",
+  "bin": {
+    "create-expression-lib": "bin/create-expression-lib"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cli"
+  ],
+  "author": "Tim Haywood",
+  "license": "MIT",
+  "dependencies": {
+    "arg": "^5.0.0",
+    "chalk": "^4.1.0",
+    "esm": "^3.2.25",
+    "execa": "^5.0.0",
+    "inquirer": "^7.3.3",
+    "listr": "^0.14.3",
+    "ncp": "^2.0.0",
+    "pkg-install": "^1.0.0"
+  }
+}
