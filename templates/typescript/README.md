@@ -11,11 +11,11 @@ Learn more about writing `.jsx` files for After Effects here: https://motiondeve
 
 ## Development
 
-1. **Create project**
+1. **Clone project locally**
 
    ```sh
-   npx create-expression-lib project-name --install
-   cd project-name
+   git clone repoUrl.git
+   cd <project-name>
    ```
 
 2. **Start Rollup**
