@@ -1,6 +1,6 @@
 {
   "name": "create-expression-lib",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A CLI to create After Effects expression libraries, in TypeScript",
   "main": "src/index.js",
   "bin": {
