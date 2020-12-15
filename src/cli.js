@@ -3,11 +3,13 @@ import inquirer from 'inquirer';
 import { createProject } from './main';
 
 function parseArgumentsIntoOptions(rawArgs) {
+  // Parse the CLI args into an object
   const args = arg(
     {
       '--git': Boolean,
       '--yes': Boolean,
       '--install': Boolean,
+      '--template': String,
       '-g': '--git',
       '-y': '--yes',
       '-i': '--install',
@@ -16,31 +18,30 @@ function parseArgumentsIntoOptions(rawArgs) {
       argv: rawArgs.slice(2),
     }
   );
+  // Return the arguments object with defaults
   return {
     skipPrompts: args['--yes'] || false,
     git: args['--git'] || false,
-    template: args._[0],
+    template: args['--template'] || 'TypeScript',
     runInstall: args['--install'] || false,
+    folderName: args._[0],
   };
 }
 
 async function promptForMissingOptions(options) {
-  const defaultTemplate = 'TypeScript';
   if (options.skipPrompts) {
     return {
       ...options,
-      template: options.template || defaultTemplate,
+      folderName: 'expression-lib',
     };
   }
 
   const questions = [];
-  if (!options.template) {
+  if (!options.folderName) {
     questions.push({
-      type: 'list',
-      name: 'template',
-      message: 'Please choose which project template to use',
-      choices: ['JavaScript', 'TypeScript'],
-      default: defaultTemplate,
+      type: 'input',
+      name: 'folderName',
+      message: 'What is the name of the project?',
     });
   }
 
@@ -56,8 +57,8 @@ async function promptForMissingOptions(options) {
   const answers = await inquirer.prompt(questions);
   return {
     ...options,
-    template: options.template || answers.template,
     git: options.git || answers.git,
+    folderName: options.folderName || answers.folderName,
   };
 }
 

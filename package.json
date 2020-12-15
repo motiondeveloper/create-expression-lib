@@ -6,6 +6,11 @@
   "bin": {
     "create-expression-lib": "bin/create-expression-lib"
   },
+  "files": [
+    "bin/",
+    "src/",
+    "templates/"
+  ],
   "publishConfig": {
     "access": "public"
   },
