@@ -1,21 +1,55 @@
-# Project Name
+<div align="center">
 
-> This project was create with [create-expression-lib](https://github.com/motiondeveloper/create-expression-lib)
+# create-expression-lib 🐱‍👤
 
-## Use the library
+![Typescript to Rollup to After Effects](https://user-images.githubusercontent.com/48076776/89993096-8ec47b80-dcc9-11ea-8b37-1ad911f48bb2.png)
 
-1. Download the latest version from the releases page.
-2. Import into After Effects and reference in your expressions
+![Editor Preview](https://user-images.githubusercontent.com/48076776/90580450-367f0380-e20c-11ea-8ca2-2db0c7ffe754.png)
 
-Learn more about writing `.jsx` files for After Effects here: https://motiondeveloper.com/blog/write-expressions-external-files/
+---
 
-## Development
+### A CLI for creating Expression Libraries for After Effects, in TypeScript.
 
-1. **Create project**
+</div>
+
+---
+
+## Why?
+
+At [Motion Developer](https://motiondeveloper.com) we maintain a lot of expression (`.jsx`) libraries, such as [`eKeys`](https://github.com/motiondeveloper/eKeys), [`eBox`](https://github.com/motiondeveloper/eBox), and [`aeFunctions`](https://github.com/motiondeveloper/aeFunctionsd). This allows us to:
+
+- Share code between expressions and projects
+- Edit code in powerful editor (such as [VS Code](https://code.visualstudio.com/))
+- [Improve performance](https://helpx.adobe.com/after-effects/using/legacy-and-extend-script-engine.html#syntax-requirements-expression-libraries)
+- Build abstractions for complex tasks
+
+> For more info on writing expressions in `.jsx` files, see our article:
+> [How to write expressions in external jsx files](https://motiondeveloper.com/blog/write-expressions-external-files/)
+
+#### This repo is a template for creating After Effects expression libraries, that enables you to:
+
+- Write in [TypeScript](https://www.typescriptlang.org/) (`.ts` files)
+- Split expressions into multiple files, to be bundled at build time
+- Write syntactically correct JavaScript, allowing:
+  - [Testing](#testing)
+  - Linting
+  - Automatic formatting
+
+## Requirements
+
+To use this template you need to have the following installed on your system:
+
+- [Node](https://nodejs.org/en/)
+- [Git](https://git-scm.com/)
+- [VS Code](https://code.visualstudio.com/) (recommended)
+- [GitHub CLI](https://github.com/cli/cli) (recommended)
+
+## Using the template
+
+1. **Run command**
 
    ```sh
    npx create-expression-lib project-name --install
-   cd project-name
    ```
 
 2. **Start Rollup**
@@ -65,7 +99,7 @@ Learn more about writing `.jsx` files for After Effects here: https://motiondeve
 To create layers, compositions and properties, you can use the classes exported from the library. For example:
 
 ```ts
-import { Comp, Layer } from 'expression-globals-typescript';
+import { Comp, Layer } from "expression-globals-typescript";
 const thisComp = new Comp();
 const thisLayer = new Layer();
 ```
@@ -73,7 +107,7 @@ const thisLayer = new Layer();
 To create properties (such as position or scale), you can use the `Property` class.
 
 ```ts
-import { Property, Vector } from 'expression-globals-typescript';
+import { Property, Vector } from "expression-globals-typescript";
 const thisProperty = new Property<Vector>([0, 100]);
 ```
 
@@ -92,10 +126,10 @@ You can test your expression library code using [Jest](https://jestjs.io/), whic
 You write tests in the `index.test.ts` file, importing the code you want to test from `index.ts`, for example:
 
 ```ts
-import { welcome } from './index';
+import { welcome } from "./index";
 
-test('returns correct welcome string', () => {
-  expect(welcome('test')).toEqual('Welcome test!');
+test("returns correct welcome string", () => {
+  expect(welcome("test")).toEqual("Welcome test!");
 });
 ```
 
