@@ -1,7 +1,7 @@
 {
-  "name": "expressions-library-template",
-  "version": "2.1.0",
-  "description": "A template repo for creating After Effects expression libraries (.jsx files) using TypeScript and Rollup ",
+  "name": "<project-name>",
+  "version": "1.0.0",
+  "description": "After Effects Expression Library",
   "main": "dist/index.jsx",
   "scripts": {
     "test": "jest --watch",
@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/motiondeveloper/expressions-library-template.git"
+    "url": ""
   },
-  "author": "Tim Haywood",
+  "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/motiondeveloper/expressions-library-template/issues"
+    "url": ""
   },
-  "homepage": "https://github.com/motiondeveloper/expressions-library-template#readme",
+  "homepage": "",
   "devDependencies": {
     "@rollup/plugin-replace": "^2.3.3",
     "@rollup/plugin-typescript": "^5.0.2",

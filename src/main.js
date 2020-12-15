@@ -26,6 +26,35 @@ async function initGit(options) {
   return;
 }
 
+async function updateProject(options) {
+  const replaceFiles = ["README.md", "package.json"];
+  const filePaths = replaceFiles.map((fileName) => {
+    return path.join(options.targetDirectory, fileName);
+  });
+
+  for (const filePath of filePaths) {
+    fs.readFile(filePath, "utf8", function (error, data) {
+      if (error) {
+        return console.error(
+          "%s Error reading file:",
+          filePath,
+          chalk.red.bold("ERROR")
+        );
+      }
+      const updatedContent = data.replace(
+        /<project-name>/g,
+        `${options.folderName || "Expression Library"}`
+      );
+      fs.writeFile(
+        filePath,
+        updatedContent,
+        "utf8",
+        (error) => error && console.log(error)
+      );
+    });
+  }
+}
+
 export async function createProject(options) {
   options = {
     ...options,
@@ -36,7 +65,6 @@ export async function createProject(options) {
   if (options.folderName) {
     fs.mkdirSync(options.folderName);
   }
-  console.log("FOLDER:", options.targetDirectory);
 
   const currentFileUrl = import.meta.url;
   const templateDir = path.resolve(
@@ -57,6 +85,10 @@ export async function createProject(options) {
     {
       title: "Copy project files",
       task: () => copyTemplateFiles(options),
+    },
+    {
+      title: "Update project",
+      task: () => updateProject(options),
     },
     {
       title: "Initialize git",

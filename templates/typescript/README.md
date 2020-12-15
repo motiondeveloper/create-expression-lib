@@ -1,4 +1,4 @@
-# Project Name
+# <project-name>
 
 > This project was create with [create-expression-lib](https://github.com/motiondeveloper/create-expression-lib)
 
