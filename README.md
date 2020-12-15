@@ -66,6 +66,8 @@ This sets up all the files necessary in a 'project-name' folder to create expres
 
 ## Edit your library
 
+_If you didn't install the packages when creating the library with `--install` make sure to run `npm install`._
+
 1. **Start Rollup**
 
    Start Rollup in watch mode to automatically refresh your code as you make changes, by running:
