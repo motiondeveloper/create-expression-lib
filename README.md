@@ -53,6 +53,7 @@ For the best experience, it's recommended you also install and use:
 
 ```sh
 npx create-expression-lib project-name
+cd project-name
 ```
 
 Arguments:
