@@ -30,7 +30,7 @@ At [Motion Developer](https://motiondeveloper.com) we maintain a lot of expressi
 > For more info on writing expressions in `.jsx` files, see our article:
 > [How to write expressions in external jsx files](https://motiondeveloper.com/blog/write-expressions-external-files/)
 
-#### This repo is a template for creating After Effects expression libraries, that enables you to:
+#### `create-expression-lib` is a CLI to create After Effects expression libraries, that enables you to:
 
 - Write in [TypeScript](https://www.typescriptlang.org/) (`.ts` files)
 - Split expressions into multiple files, to be bundled at build time
@@ -41,28 +41,31 @@ At [Motion Developer](https://motiondeveloper.com) we maintain a lot of expressi
 
 ## Requirements
 
-To use this template you need to have the following installed on your system:
+To use this template you need to have [Node](https://nodejs.org/en/) installed on your system.
 
-- [Node](https://nodejs.org/en/)
+For the best experience, it's recommended you also install and use:
+
 - [Git](https://git-scm.com/)
-- [VS Code](https://code.visualstudio.com/) (recommended)
-- [GitHub CLI](https://github.com/cli/cli) (recommended)
+- [VS Code](https://code.visualstudio.com/)
+- [GitHub CLI](https://github.com/cli/cli)
 
-## Using the template
+## Creating the library
 
-1. **Run command**
+```sh
+npx create-expression-lib project-name
+```
 
-   ```sh
-   npx create-expression-lib project-name
-   ```
+Arguments:
 
-   Arguments:
+- `--install`: install npm packages (`-i`)
+- `--git`: initialize with git repo (`-g`)
+- `--yes`: skip prompts (`-y`)
 
-   - `--install`: install npm packages (`-i`)
-   - `--git`: initialize with git repo (`-g`)
-   - `--yes`: skip prompts (`-y`)
+This sets up all the files necessary in a 'project-name' folder to create expression libraries in TypeScript.
 
-2. **Start Rollup**
+## Edit your library
+
+1. **Start Rollup**
 
    Start Rollup in watch mode to automatically refresh your code as you make changes, by running:
 
@@ -72,7 +75,7 @@ To use this template you need to have the following installed on your system:
 
    _You can run also run a once off build:_ `npm run build`
 
-3. **Edit the `src` files**
+2. **Edit the `src` files**
 
    _The `index.ts` contains an example expression setup._
 
@@ -82,11 +85,11 @@ To use this template you need to have the following installed on your system:
    export { someValue };
    ```
 
-4. **Import the `dist` file into After Effects**
+3. **Import the `dist` file into After Effects**
 
    Use the compiled output file as you would any other `.jsx` library. Any changes to the `src` files will be live updated, and After Effects will update the result of your expression.
 
-5. **Distribute releases**
+4. **Distribute releases**
 
    To distribute your output file using Github releases (via [Hub](https://github.com/github/hub)), use the command:
 
