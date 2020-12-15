@@ -53,8 +53,14 @@ To use this template you need to have the following installed on your system:
 1. **Run command**
 
    ```sh
-   npx create-expression-lib project-name --install
+   npx create-expression-lib project-name
    ```
+
+   Arguments:
+
+   - `--install`: install npm packages (`-i`)
+   - `--git`: initialize with git repo (`-g`)
+   - `--yes`: skip prompts (`-y`)
 
 2. **Start Rollup**
 
