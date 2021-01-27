@@ -33,6 +33,6 @@
     "typescript": "^3.9.7"
   },
   "dependencies": {
-    "expression-globals-typescript": "^3.0.0"
+    "expression-globals-typescript": "^3.1.0"
   }
 }
