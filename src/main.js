@@ -66,10 +66,9 @@ export async function createProject(options) {
     fs.mkdirSync(options.folderName);
   }
 
-  const currentFileUrl = import.meta.url;
   const templateDir = path.resolve(
-    new URL(currentFileUrl).pathname,
-    "../../templates",
+    __dirname,
+    "../templates",
     options.template.toLowerCase()
   );
   options.templateDirectory = templateDir;
@@ -109,6 +108,6 @@ export async function createProject(options) {
   ]);
 
   await tasks.run();
-  console.log("%s Project ready", chalk.green.bold("DONE"));
+  console.log("%s Project ready", chalk.bgGreen.bold("DONE"));
   return true;
 }
