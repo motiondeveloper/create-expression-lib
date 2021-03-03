@@ -2,7 +2,7 @@
   "name": "<project-name>",
   "version": "1.0.1",
   "description": "After Effects Expression Library",
-  "main": "dist/index.jsx",
+  "main": "dist/<project-name>.jsx",
   "scripts": {
     "test": "jest --watch",
     "tsc": "tsc",
