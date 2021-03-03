@@ -127,6 +127,6 @@ export async function createProject(options) {
   ]);
 
   await tasks.run();
-  console.log("%s Project ready", chalk.bgGreen.bold("DONE"));
+  console.log("%s Project ready", chalk.green.bold("DONE"));
   return true;
 }
