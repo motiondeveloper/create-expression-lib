@@ -27,6 +27,8 @@ async function initGit(options) {
 }
 
 async function updateProject(options) {
+  // Replace project name in these files
+  // with the folder name from the CLI
   const replaceFiles = ["README.md", "package.json"];
   const filePaths = replaceFiles.map((fileName) => {
     return path.join(options.targetDirectory, fileName);
@@ -52,6 +54,23 @@ async function updateProject(options) {
         (error) => error && console.log(error)
       );
     });
+  }
+
+  // Rename gitignore to .gitignore to fix npm killing it:
+  // https://github.com/npm/npm/issues/3763
+  const renameFiles = [{ from: "gitignore", to: ".gitignore" }];
+  const renamePaths = renameFiles.map(({ from, to }) => {
+    return {
+      from: path.join(options.targetDirectory, from),
+      to: path.join(options.targetDirectory, to),
+    };
+  });
+  for (const { from, to } of renamePaths) {
+    fs.rename(
+      from,
+      to,
+      (error) => error && console.log(`%s${error}`, chalk.red.bold("ERROR"))
+    );
   }
 }
 
