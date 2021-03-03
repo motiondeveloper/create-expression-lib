@@ -13,7 +13,10 @@ export default {
   external: Object.keys(pkg.dependencies),
   plugins: [
     replace({
-      _npmVersion: pkg.version,
+      preventAssignment: true,
+      values: {
+        _npmVersion: pkg.version,
+      },
     }),
     typescript({
       module: 'esnext',
